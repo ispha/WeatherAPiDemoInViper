@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m98-b8-7bC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cities List View Controller-->
+        <scene sceneID="Gs9-pv-Wss">
+            <objects>
+                <viewController storyboardIdentifier="CitiesList" id="1oJ-JA-gc9" customClass="CitiesListViewController" customModule="MusalaTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a0G-LJ-GKb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ynp-Ag-Kgl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DdX-xe-sER">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" estimatedRowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w02-Au-G2c">
+                                <rect key="frame" x="0.0" y="108" width="414" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1oJ-JA-gc9" id="pwF-Ne-Exh"/>
+                                    <outlet property="delegate" destination="1oJ-JA-gc9" id="xZE-2x-kf0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hxi-uD-Kwd"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w02-Au-G2c" firstAttribute="leading" secondItem="Hxi-uD-Kwd" secondAttribute="leading" id="VVo-rC-tYc"/>
+                            <constraint firstItem="Hxi-uD-Kwd" firstAttribute="bottom" secondItem="w02-Au-G2c" secondAttribute="bottom" constant="20" id="a1r-4Z-mov"/>
+                            <constraint firstItem="Hxi-uD-Kwd" firstAttribute="trailing" secondItem="w02-Au-G2c" secondAttribute="trailing" id="cqa-sa-x7U"/>
+                            <constraint firstItem="w02-Au-G2c" firstAttribute="top" secondItem="Hxi-uD-Kwd" secondAttribute="top" constant="20" id="iip-lm-iac"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oTh-cN-udt">
+                        <barButtonItem key="rightBarButtonItem" title="New WOEID" id="eLx-fx-QeO">
+                            <connections>
+                                <action selector="addNewWOEID:" destination="1oJ-JA-gc9" id="VqV-2T-085"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="w02-Au-G2c" id="vpd-Sp-MUb"/>
+                        <segue destination="03D-rc-G9j" kind="show" identifier="showCountryDetails" id="ZMc-Ij-E5e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqt-72-uOv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1988.4057971014495" y="138.61607142857142"/>
+        </scene>
+        <!--City Details View Controller-->
+        <scene sceneID="oAg-3g-MhJ">
+            <objects>
+                <viewController id="03D-rc-G9j" customClass="CityDetailsViewController" customModule="MusalaTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L9p-tT-dRB"/>
+                        <viewControllerLayoutGuide type="bottom" id="bWo-Kj-hpY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tne-Sl-28W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="220" estimatedRowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-0Z-5RL">
+                                <rect key="frame" x="20" y="108" width="374" height="734"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="03D-rc-G9j" id="hb1-2r-eN8"/>
+                                    <outlet property="delegate" destination="03D-rc-G9j" id="m2y-7u-8kd"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="AbX-nS-2rP">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Gw-oO-mKF"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZhX-0Z-5RL" firstAttribute="top" secondItem="8Gw-oO-mKF" secondAttribute="top" constant="20" id="9FC-P4-OFV"/>
+                            <constraint firstItem="ZhX-0Z-5RL" firstAttribute="leading" secondItem="8Gw-oO-mKF" secondAttribute="leading" constant="20" id="IA7-Vn-R9E"/>
+                            <constraint firstItem="8Gw-oO-mKF" firstAttribute="trailing" secondItem="ZhX-0Z-5RL" secondAttribute="trailing" constant="20" id="jt8-3g-1aW"/>
+                            <constraint firstItem="8Gw-oO-mKF" firstAttribute="bottom" secondItem="ZhX-0Z-5RL" secondAttribute="bottom" constant="20" id="zvU-pv-90f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicatorView" destination="AbX-nS-2rP" id="lfh-wX-DxL"/>
+                        <outlet property="tableView" destination="ZhX-0Z-5RL" id="wDf-Gf-lDa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bT-0V-ibB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2747.826086956522" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FkG-Pp-sZp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m98-b8-7bC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mbp-lT-CGY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1oJ-JA-gc9" kind="relationship" relationship="rootViewController" id="DE2-aJ-mx3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDr-P9-4td" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078.2608695652175" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
